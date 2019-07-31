@@ -1,35 +1,34 @@
-# main.rb
-require '../lib/player'
+# frozen_string_literal: true
+
+require '../lib/game'
 require '../lib/board'
+require '../lib/player'
 
+# main game loop
 loop do
-  #   create_game
-  #   create_board
-  puts "Welcome to Tic Tac Toe!"
+  # game = Game.new
 
-  print "Please enter name of player 1: "
-  player_1_name = gets.chomp
-  player_1 = Player.new(player_1_name, "X")
-  
-  print "Please enter name of player 2: "
-  player_2_name = gets.chomp
-  player_2 = Player.new(player_2_name, "O")
-  
+  # Move all of the following to game class
   board = Board.new
-  board.print
-  board.place_mark(player_1.marker, 2)
-  board.print
-  
+  puts 'Welcome to Tic-Tac-Toe!'
 
+  player1 = Player.new(1, 'X')
+  player1.prompt_for_name
+
+  player2 = Player.new(2, 'O')
+  player2.prompt_for_name
+
+  board.display
+
+  # player turn loop
   #   loop do
-  #     game.turn(current_player)
-  #     break if game.winner? || game.draw?
+  #     game.turn()
+  #     break if game.end?
   #   end
 
-  #   game.display_winner || game.display_draw
+  #   game.end_message
 
-  print "Would you like to play again? (y/n): "
-  answer = gets.chomp
-  break unless answer.downcase.start_with?('y')
-
+  # move this to game class also
+  print 'Would you like to play again? (y/n): '
+  break unless gets.chomp.downcase.start_with?('y')
 end
