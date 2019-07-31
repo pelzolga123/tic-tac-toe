@@ -1,10 +1,22 @@
 # game.rb
 
+class Game
+
+  def initialize()
+    # new board (board object)
+    # new player (player object)
+    # new player (player object)
+    @current_player # (initially random, switch on each turn)
+  end
+
+  def turn(player, board)
+
+  end
+
+end
+
 # Initialize:
-#   - new board (board object)
-#   - new player (player object)
-#   - new player (player object)
-#   - current_player (initially random, switch on each turn)
+
 # Attributes:
 #   - @game_board (board object)
 #   - @player_1 (player object)
