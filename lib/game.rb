@@ -3,29 +3,49 @@
 class Game
 
   def initialize()
-    # new board (board object)
-    # new player (player object)
-    # new player (player object)
-    @current_player # (initially random, switch on each turn)
+    
+    @board = Board.new
+    self.welcome
+    @player1 = Player.new(1, 'X')
+    @player1.prompt_for_name
+  
+    @player2 = Player.new(2, 'O')
+    @player2.prompt_for_name
+  
+    @board.display
+
+    @current_player = [@player1, @player2].sample(1) # (initially random, switch on each turn)
+  
+    
+  end
+  def welcome
+    puts 'Welcome to Tic-Tac-Toe!'
+  
+  end 
+
+  def play_again?
+    print 'Would you like to play again? (y/n): '
+    gets.chomp.downcase.start_with?('y')
   end
 
-  def turn(player, board)
+  def switch_player
+     @current_player = @current_player == @player1 ? @player2 : @player1
+  end 
+
+  def turn
 
   end
 
+  def end?
+     board.winner? || board.draw? 
+  end
 end
 
-# Initialize:
 
-# Attributes:
-#   - @game_board (board object)
-#   - @player_1 (player object)
-#   - @player_2 (player object)
-#   - current_player = @player_1 || @player_2
+
+
 # Methods:
-#   - #welcome
-#     - display welcome message
-#   - #switch_players
+
 #   - #turn(player, board)
 #     - board.place_piece
 #     - check #end?
