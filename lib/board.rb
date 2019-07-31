@@ -19,7 +19,7 @@ class Board
   end
 
   def display
-    # system 'clear'
+    system 'clear'
     puts ''
     puts '       |       |       '
     puts "   #{@board[1]}   |   #{@board[2]}   |   #{@board[3]}   "
@@ -39,12 +39,15 @@ class Board
     @board[position] = marker
   end
 
+  def valid_selection?(position)
+    @board[position] == INITIAL_MARKER
+  end
+
   def winner?
     WINNING_LINES.each do |line|
       return true if @board.values_at(*line).count('X') == 3 ||
                      @board.values_at(*line).count('O') == 3
     end
-
     false
   end
 
