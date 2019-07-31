@@ -1,5 +1,6 @@
 # main.rb
 require '../lib/player'
+require '../lib/board'
 
 loop do
   #   create_game
@@ -8,15 +9,17 @@ loop do
 
   print "Please enter name of player 1: "
   player_1_name = gets.chomp
-  # player_1 = Player.new(player_1_name, "X")
-  puts "Player 1 is: #{player_1.name}"
-
-
+  player_1 = Player.new(player_1_name, "X")
+  
   print "Please enter name of player 2: "
   player_2_name = gets.chomp
-  # player_2 = Player.new(player_2_name, "O")
-  puts "Player 2 is: #{player_2.name}"
-
+  player_2 = Player.new(player_2_name, "O")
+  
+  board = Board.new
+  board.print
+  board.place_mark(player_1.marker, 2)
+  board.print
+  
 
   #   loop do
   #     game.turn(current_player)
