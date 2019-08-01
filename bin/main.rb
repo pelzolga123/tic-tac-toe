@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require '../lib/game'
-require '../lib/board'
-require '../lib/player'
+require_relative '../lib/game'
+require_relative '../lib/board'
+require_relative '../lib/player'
 
 # Main game loop
 loop do
