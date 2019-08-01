@@ -32,7 +32,7 @@ class Board
     @board[position] == INITIAL_MARKER
   end
 
-  def winner?()
+  def winner?
     markers = @board.values
     lines = []
     # rows
@@ -49,5 +49,4 @@ class Board
   def draw?
     winner? == false && @board.values.none? { |marker| marker == INITIAL_MARKER }
   end
-
 end

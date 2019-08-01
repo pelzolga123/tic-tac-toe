@@ -8,5 +8,4 @@ class Player
     @name = name
     @marker = marker
   end
-
 end
