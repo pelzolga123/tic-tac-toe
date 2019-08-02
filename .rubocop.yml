@@ -10,3 +10,4 @@ Metrics/MethodLength:
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe']
+  # Max: 30

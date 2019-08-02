@@ -32,21 +32,21 @@ class Board
     @board[position] == INITIAL_MARKER
   end
 
-  def winner?
+  def winning_lines
     markers = @board.values
-    lines = []
-    # rows
-    lines += markers.each_slice(3).to_a
-    # cols
-    lines += markers.each_slice(3).to_a.transpose
-    # diagonals
-    lines << [markers[0], markers[4], markers[8]]
-    lines << [markers[2], markers[4], markers[6]]
+    [
+      markers.each_slice(3).to_a,             # rows
+      markers.each_slice(3).to_a.transpose,   # columns
+      [[markers[0], markers[4], markers[8]],  # diagonal 1
+       [markers[2], markers[4], markers[6]]]  # diagonal 2
+    ].flatten(1)
+  end
 
-    lines.any? { |line| line.all? { |m| m == 'X' } || line.all? { |m| m == 'O' } }
+  def winner?
+    winning_lines.any? { |line| line.all?('X') || line.all?('O') }
   end
 
   def draw?
-    winner? == false && @board.values.none? { |marker| marker == INITIAL_MARKER }
+    !winner? && @board.values.none?(INITIAL_MARKER)
   end
 end

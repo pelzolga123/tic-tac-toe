@@ -2,12 +2,13 @@
 
 # Game class
 class Game
-  attr_reader :current_player
+  attr_accessor :player1, :player2
+  attr_reader :current_player, :board
 
-  def initialize(board, player1, player2)
-    @board = board
-    @player1 = player1
-    @player2 = player2
+  def initialize
+    @board = Board.new
+    @player1 = Player.new('X')
+    @player2 = Player.new('O')
     @current_player = [@player1, @player2].sample(1).first
   end
 
@@ -22,7 +23,7 @@ class Game
   def state
     return :winner if @board.winner?
     return :draw if @board.draw?
-    
+
     :active
   end
 end
