@@ -16,7 +16,7 @@ A Tic-tac-toe game in Ruby using object oriented programming.
 
 * Clone project
 ```
-git clone https://github.com/pelzolga123/Bubble-sort.git
+git clone https://github.com/pelzolga123/tic-tac-toe.git
 ```
 * Start game
 ```
