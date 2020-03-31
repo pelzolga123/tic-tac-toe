@@ -1,7 +1,7 @@
 <h1 align="center">Tic-tac-toe 👋</h1>
 
 ## About The Project
-A Tic-tac-toe game in Ruby using object oriented programming.
+A Tic-tac-toe game in Ruby using object-oriented programming.
 
 ### Game rules:
 * The game is played on a grid that's 3 squares by 3 squares.
